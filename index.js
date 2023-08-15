@@ -4,7 +4,7 @@ const subscriptionHandler=require('./pushHandler');
 const bodyParser=require('body-parser')
 
 const app=express();
-const port =4003;
+const port =4005;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,3 +20,5 @@ app.get('/subscription/:id', subscriptionHandler.sendPushNotification)
 app.listen(port, ()=>{
     console.log(`Example app listening on port ${port}`)
 })
+
+module.exports=app;
