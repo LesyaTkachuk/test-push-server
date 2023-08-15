@@ -34,13 +34,14 @@ function sendPushNotification(req,res){
     }
 
     webpush.sendNotification(pushSubsription, JSON.stringify({
-        title: "New message from test server",
+        title: "New message from remote server",
         text: "HEY! Take a look at this message",
         tag: 'new message',
+        icon: './river.jpg',
         image: 'https://media.istockphoto.com/id/1158030404/de/foto/zwei-hunde-und-eine-lustige-katze.jpg?s=612x612&w=0&k=20&c=oEjAvtqZPIlnL3wsxolrGl8q_OLR6RttUE8ecrYsSJM=',
     }), options).catch(err=>console.log("Error when pushing", err));
 
-    res.status(202).json({pushStatus: 'Sent'})
+    res.status(202).json({pushStatus: 'Sent from remote server'})
 
 
 }
