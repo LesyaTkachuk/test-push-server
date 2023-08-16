@@ -21,6 +21,7 @@ function handlePushNotificationSubscription(req,res){
  console.log('requestBody', req.body);
  const subscriptionId=createHash(JSON.stringify(sunscriptionRequest));
  subscriptions[subscriptionId]=sunscriptionRequest;
+
  res.status(201).json({id: subscriptionId});
 }
 
@@ -35,7 +36,7 @@ function sendPushNotification(req,res){
 
     webpush.sendNotification(pushSubsription, JSON.stringify({
         title: "New message from remote server",
-        text: "HEY! Take a look at this message",
+        text: "HEY! Take a look at this message. It's finally on your device :)",
         tag: 'new message',
         icon: './river.jpg',
         image: 'https://media.istockphoto.com/id/1158030404/de/foto/zwei-hunde-und-eine-lustige-katze.jpg?s=612x612&w=0&k=20&c=oEjAvtqZPIlnL3wsxolrGl8q_OLR6RttUE8ecrYsSJM=',
