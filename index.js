@@ -14,7 +14,9 @@ app.get('/', (req, res)=>{
     res.send('Hello World')
 })
 
+// to store user subscription details
 app.post('/subscription', subscriptionHandler.handlePushNotificationSubscription);
+// to send push message to the user by subscription id
 app.get('/subscription/:id', subscriptionHandler.sendPushNotification)
 
 app.listen(port, ()=>{
